@@ -1,0 +1,17 @@
+#!/bin/bash
+
+datasets=(
+    "semi-aves"
+    "fgvc-aircraft"
+    "stanford_cars"
+    "eurosat"
+    "dtd"
+)
+
+for dataset in "${datasets[@]}"; do
+    echo ""
+    echo "DebiasPL on $dataset"
+    bash scripts/run_dataset_seed_debiasPL.sh $dataset 1
+    # bash scripts/run_dataset_seed_debiasPL_INet-RN50.sh $dataset 1
+
+done
