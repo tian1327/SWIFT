@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriately as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="">
+  <meta property="og:title" content="Solving Semi-Supervised Few-Shot Learning from an Auto-Annotation Perspective" />
+  <meta property="og:description" content="" />
+  <meta property="og:url" content="" />
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/images/POC.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+
+  <meta name="twitter:title" content="Solving Semi-Supervised Few-Shot Learning from an Auto-Annotation Perspective">
+  <meta name="twitter:description" content="">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/POC.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="VLMs,few-shot_recognition">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Solving Semi-Supervised Few-Shot Learning from an Auto-Annotation Perspective</title>
+  <!-- <link rel="icon" type="image/x-icon" href="static/images/favicon.ico"> -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Solving Semi-Supervised Few-Shot Learning from an Auto-Annotation Perspective
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://tian1327.github.io/" target="_blank">Tian Liu</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.linkedin.com/in/anweshabasu98/" target="_blank">Anwesha Basu</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://people.engr.tamu.edu/caverlee/index.html" target="_blank">James Caverlee</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://aimerykong.github.io/" target="_blank">Shu Kong</a><sup>2</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Texas A&M University<br></span>&nbsp;
+              <span class="author-block"><sup>2</sup>University of Macau<br></span>
+            </div>
+
+            <!-- <div class="is-size-6 publication-authors">
+              <span class="author-block"><sup>*</sup> The first two authors make equal contributions</span>
+            </div> -->
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- Arxiv PDF link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2512.10244" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+
+                <!-- Github link -->
+                <span class="link-block">
+                  <a href="https://github.com/tian1327/SWIFT" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <!-- ArXiv abstract Link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2512.10244" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+
+                <!-- <span class="link-block">
+                  <a href="https://tian1327.github.io/data/POC_CVPR'26_poster.pdf" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Poster</span>
+                  </a>
+                </span> -->
+                  <!-- <h2><strong style="color: red; font-size: x-large;">CVPR 2025, CVinW and FGVC12 Workshops</strong></h2> -->
+              </div>
+            </div>
+            <!-- <h1><strong style="color: red; font-size: x-large;">CVPR 2024</strong></h1> -->
+            <h2 class="subtitle has-text-centered">
+              <!-- <b>tl;dr:</b> We explore retriaval-augmented learning for<br>few-shot recognition using Vision-Language Models</h2> -->
+              <b>tl;dr:</b> We reveal the root cause of failures when semi-supervised finetuning a VLM and<br>
+              propose simple classifier initialization and temperature tuning remedies.</h2>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- Paper overview -->
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Motivation</h2>
+            <div class="content has-text-justified">
+              <p style="text-align: justify;">
+                          
+              <b>Semi-supervised few-shot learning (SSFSL)</b> formulates realworld applications like <b>“auto-annotation”</b>, 
+              as it aims to learn a model over a few labeled and abundant unlabeled examples to annotate the 
+              unlabeled ones. Despite the availability of powerful open-source Vision-Language Models (VLMs)
+              and their pretraining data, the SSFSL literature largely neglects these open-source resources. 
+              To achive auto-annotation in the real world, we exploit <b>finetuning VLMs and their pretraining data</b> for SSFSL.
+
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section hero is-light2">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Overview of Findings</h2>
+            <div class="content has-text-justified">
+
+              <div class="item">
+                <!-- Your image here -->
+                <img src="static/images/teaser.png" alt="1" style="width: 600px; height: auto; display: block; margin: 0 auto;"/>
+                <p style="text-align: justify; font-size: 16px; line-height: 1.5; margin-top: 10px; color: #333;">
+                  Over five challenging fine-grained SSL datasets, our experiments show that:
+                  <ol> 
+                    
+                    <li>Influential <span style="color: rgb(230, 113, 230);">Semi-Supervised Learning (SSL) methods</span>, 
+                      such as FixMatch, DebiasPL that finetune an ImageNet-pretrained ResNet50
+                      backbone, underperform the <span style="color: green;">state-of-the-art (SOTA) zero-shot
+                      learning (ZSL) methods</span> like REAL. 
+                    </li>
+
+                    <li><span style="color: orange;">SOTA SSL method FineSSL</span> that learns prompts with a frozen VLM (e.g., CLIP)
+                      achives notable gains, yet still lags behind <span style="color: blue;">recent few-shot learning (FSL) methods</span> like Few-Shot finetune
+                      that finetune the VLM's visual encoder. This motivates us to explore finetuning VLMs for SSFSL.
+                    </li>
+                    
+                    <li><span style="color: purple;">Directly applying FixMatch and DebiasPL on VLM</span> 
+                      significantly underperforms recent FSL methods such as Few-Shot Finetune and SWAT,
+                      which do not even exploit unlabeled data. We reveal the <b>root cause of such failures</b> lies 
+                      in the <i>rather flat softmax probabilities from VLMs</i>, leading to weak supervision and zero utilization 
+                      of unlabeled data.                    
+                    </li>                                        
+
+                    <li><span style="color: red;">Our SSFSL method SWIFT</span>, incorporates our simple yet effective 
+                      <b>classifier initialization and temperature tuning</b> techniques to remedy the above issues, 
+                      significantly outperforms existing SSL methods and FSL methods by 5%, even rivalling fully supervised methods.
+                    
+                    </li>
+                    </li>
+                  </ol>
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Challenges</h2>
+          <h3 class="title is-4">VLM produces ''flat'' softmax probabilities</h3>
+          <div class="content has-text-justified">
+
+            <div class="item">
+              <!-- Your image here -->
+              <img src="static/images/insights.png" alt="1" style="width: auto; height: auto; display: block; margin: 0 auto;"/>
+              <p style="text-align: justify; font-size: 16px; line-height: 1.5; margin-top: 10px; color: #333;">
+                
+                We run OpenCLIP ViT-B/32 on the unlabeled images of the semi-Aves dataset by zero-shot prompting its 200 class names.
+                <ul>
+                  <li>
+                  <b>(A)</b> VLMs produce a <b>''flat'' distribution of softmax probabilities</b> (200-dim column vector per unlabeled example), 
+                  resulting in low confidence scores and weak supervision signals that prevent effective finetuning.
+                  <b>(B)</b> Applying a temperature sharpens the softmax distribution,
+                  illustrated by the more prominent red diagonal line.                   
+                  </li>
+
+                  <li>
+                    <b>(C)</b> 
+                    Without temperature, the original low confidence scores result in <b>zero utilization of 
+                    unlabeled examples</b> for FixMatch (threshold set at 0.8)!
+                    <b>(D)</b> Using a temperature increases confidence scores, improving the utilization 
+                    of unlabeled data. Note the difference in confidence range between (C) and (D).
+                </ul>
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <section class="section hero is-light1">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Solution</h2>
+          <h3 class="title is-4">Temperature Tuning (TT) with FixMatch</h3>
+          <div class="content has-text-justified">
+
+            <div class="item">
+              <!-- Your image here -->
+              <img src="static/images/TT.png" alt="1" style="width: 500px; height: auto; display: block; margin: 0 auto;"/>
+              <p style="text-align: justify; font-size: 16px; line-height: 1.5; margin-top: 10px; color: #333;">
+                
+                We apply temperatures for (1) sharpening the softmax probability distributions and (2) 
+                strengthening supervision signals.
+                We illustrate our temperature tuning technique with FixMatch as an example.
+                Specifically, we introduce two temperatures: (a) <span style="color: blue;">loss temperature T_loss</span> to 
+                sharpen the softmax probabilities when computing the 
+                cross-entropy loss, and (b) <span style="color: red;">confidence temperature T_conf</span> to scale the softmax probabilities 
+                when determining whether the confidence exceeds the threshold for utilizing unlabeled data.
+                By tuning these two temperatures, we can effectively 
+                mitigate the issues caused by flat softmax probabilities from VLMs, leading to improved finetuning performance.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h3 class="title is-4">Stage-wise Finetuning with Temperature Tuning (SWIFT)</h3>
+          <div class="content has-text-justified">
+
+            <div class="item">
+              <!-- Your image here -->
+              <img src="static/images/SWIFT.png" alt="1" style="width: auto; height: auto; display: block; margin: 0 auto;"/>
+              <p style="text-align: justify; font-size: 16px; line-height: 1.5; margin-top: 10px; color: #333;">
+                
+                Besides Temperature Tuning, we also propose classifier initialization to mitigate the flat softmax issue.
+                Specifically, we initialize the classification head by linear probing with few-shot examples,
+                providing a better starting point for finetuning.
+                Combining classifier initialization and temperature tuning, our final method SWIFT
+                finetunes the entire VLM in a stage-wise manner.
+
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Text-Image generation -->
+  <section class="section hero is-light1">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Results</h2>
+          <h3 class="title is-4">SWIFT achives SOTA SSFSL performance</h3>
+          <div class="content has-text-justified">
+            <div class="item">
+              <!-- Your image here -->
+              <img src="static/images/sota.png" alt="1" style="width: 2000px; height: auto; display: block; margin: 0 auto;"/>
+              <p style="text-align: justify; font-size: 16px; line-height: 1.5; margin-top: 10px; color: #333;">
+                <!-- Compareing SWAT -->
+                <ul>
+                  <li>Left: across five SSL benchmark datasets, our simple classifier initialization and temperature tuning solutions
+                    effectively improves existing SSL methods like FixMatch and DebiasPL by a large margin (up to 20%) when finetuning VLMs.
+                    Our final method SWIFT significantly outperforms all existing SSL methods and FSL methods by 5% on average.                    
+                  </li>
+                  <li>
+                    Right: each component in SWIFT brings significant gains. Notably, our SWIFT recipe generalizes well to 
+                    various existing SSL methods.
+                </ul>
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+
+        <div class="column is-four-fifths">
+          <!-- <h2 class="title is-3">Results</h2> -->
+          <h3 class="title is-4">Tuning the loss temperature strengthens training supervision</h3>
+          <div class="content has-text-justified">
+            <img src="static/images/T_loss.png" alt="comparison with SOTA."
+                style="height: auto; display: block; margin: 10px;">
+              <p>
+                We illustrate the impact of loss temperature T_loss through few-shot finetuning the visual encoder 
+                of OpenCLIP ViT-B/32.
+                Training loss (left) and test accuracy (right) over epochs show that
+                <span style="color: red;">finetuning without TT (i.e., T_loss=1.0)</span> yields slow convergence 
+                (slow reduction in training loss and increase in test accuracy), due to the weak supervision.
+                In contrast, <span style="color: blue;">applying a loss temperature</span>, either by fixing T_loss 
+                to a moderately small value (e.g., 0.1 or 0.07, <span style="color: blue;">solid lines</span>) or 
+                by learning it dynamically (<span style="color: blue;">dashed lines</span>), greatly accelerates 
+                convergence and improves test accuracy, demonstrating the strengthening of training supervisions.
+              </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+    <section class="section hero is-light1">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+
+        <div class="column is-four-fifths">
+          <!-- <h2 class="title is-3">Results</h2> -->
+          <h3 class="title is-4">Tuning the confidence temperature enables utilization of pseudo-labeled data</h3>
+          <div class="content has-text-justified">
+            <img src="static/images/T_conf.png" alt="comparison with SOTA."
+                style="height: auto; display: block; margin: 10px;">
+              <p>
+                We illustrate the impact of confidence temperature T_conf through finetuning OpenCLIP ViT-B/32 
+                with FixMatch on semi-Aves.
+                The left figure shows that <span style="color: red;">without TT (i.e., T_conf=1.0)</span>, 
+                the utilization of unlabeled data is zero with a default confidence threshold of 0.8,
+                resulting no accuracy gains over the few-shot finetuning. 
+                However, <span style="color: blue;">reducing the confidence temperature</span>,
+                e.g., fixing T_conf to a moderately small value (0.1 or 0.07) significantly
+                increases the utilization of unlabeled data, yielding notable accuracy gains (right).
+
+              </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- Acknowledgement -->
+
+
+  <!--BibTex citation -->
+  <section class="section hero is-light1" id="BibTeX">
+    <div class="container is-max-desktop content ">
+      <h2 class="title">BibTeX</h2>
+      <p> If you find our work useful, please consider citing our papers:</p>
+      <pre><code>
+@article{liu2025swift,
+title={Solving Semi-Supervised Few-Shot Learning from an Auto-Annotation Perspective}, 
+author={Liu, Tian and Basu, Anwesha and Kong, Shu},
+journal={arXiv preprint arXiv:2512.10244},
+year={2025}
+}
+
+@inproceedings{liu2025few,
+    title={Few-Shot Recognition via Stage-Wise Retrieval-Augmented Finetuning},
+    author={Liu, Tian and Zhang, Huixin and Parashar, Shubham and Kong, Shu},
+    booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    year={2025}
+}
+  </code></pre>
+    </div>
+  </section>
+  <!--End BibTex citation -->
+
+</body>
+
+</html>
