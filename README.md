@@ -12,7 +12,7 @@ from an Auto-Annotation Perspective</h1>
 </div>
 
 
-We investigate the failures of representative semi-supervised learning methods, e.g., FixMatch and DebiasPL, in the challenging few-shot setup for finetuning a pretrained VLM. Our analyses reveal the root cause in the rather ``flat'' softmax probabilities from contrastively pretrained VLMs, which leads to weak supervision and zero utilization of pseudo-labeled data. 
+We investigate the failures of representative semi-supervised learning methods, e.g., FixMatch and DebiasPL, in the challenging few-shot setup for finetuning a pretrained VLM. Our analyses reveal the root cause in the rather ''flat'' softmax probabilities from contrastively pretrained VLMs, which leads to weak supervision and zero utilization of pseudo-labeled data. 
 
 To address this, we propose simple-yet-effective remedies, including classifier initialization and temperature tuning. Building upon these insights, our final method SWIFT effectively finetunes a VLM on limited labeled data, abundant unlabeled data, and task-relevant retrieved data. SWIFT outperforms recent FSL and SSL methods by 5% accuracy across five benchmarks, even rivalling fully supervised finetuning with all labels.
 
