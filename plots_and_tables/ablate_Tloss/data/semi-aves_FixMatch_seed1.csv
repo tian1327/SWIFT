@@ -1,0 +1,11 @@
+Dataset,Method,Model,DataSource,Init,Shots,Seed,Retrieve,temp_scheme,temp,Stage1Acc,Stage2LPAcc,Stage2FSFTAcc
+semi-aves,finetune,vitb32_openclip_laion400m,fewshot+unlabeled,REAL-Prompt,16,1,T2T500.txt,fewshot+retrieved+unlabeled,0.01,57.0,-1,-1
+semi-aves,fixmatch,vitb32_openclip_laion400m,fewshot+unlabeled,REAL-Prompt,16,1,T2T500.txt,fewshot+retrieved+unlabeled,0.03,58.2,58.1,58.7
+semi-aves,fixmatch,vitb32_openclip_laion400m,fewshot+unlabeled,REAL-Prompt,16,1,T2T500.txt,fewshot+retrieved+unlabeled,0.05,58.7,58.7,58.9
+semi-aves,finetune,vitb32_openclip_laion400m,fewshot+unlabeled,REAL-Prompt,16,1,T2T500.txt,fewshot+retrieved+unlabeled,0.07,58.5,-1,-1
+semi-aves,finetune,vitb32_openclip_laion400m,fewshot+unlabeled,REAL-Prompt,16,1,T2T500.txt,fewshot+retrieved+unlabeled,0.1,57.9,-1,-1
+semi-aves,fixmatch,vitb32_openclip_laion400m,fewshot+unlabeled,REAL-Prompt,16,1,T2T500.txt,fewshot+retrieved+unlabeled,0.3,47.4,51.2,48.8
+semi-aves,fixmatch,vitb32_openclip_laion400m,fewshot+unlabeled,REAL-Prompt,16,1,T2T500.txt,fewshot+retrieved+unlabeled,0.5,36.7,45.2,39.1
+semi-aves,fixmatch,vitb32_openclip_laion400m,fewshot+unlabeled,REAL-Prompt,16,1,T2T500.txt,fewshot+retrieved+unlabeled,0.7,30.9,40.9,32.3
+semi-aves,finetune,vitb32_openclip_laion400m,fewshot+unlabeled,REAL-Prompt,16,1,T2T500.txt,fewshot+retrieved+unlabeled,1.0,26.1,-1,-1
+
