@@ -236,12 +236,12 @@ def plot_results(dataset, plot_legend):
     # plot the straight line for the finetune on retrieved data
     # plt.hlines(y_ft_retr, 0, 16, colors='tab:orange', linestyles='solid', label='FT on retrieved (ours)', linewidth=LINEWIDTH, alpha=0.8)
 
-    plt.plot(x, oracle1_openclip, label="Supervised", linewidth=LINEWIDTH, linestyle='solid', color='tab:gray', marker='o', markersize=MARKERSIZE-3, alpha=0.6)
+    # plt.plot(x, oracle1_openclip, label="Supervised", linewidth=LINEWIDTH, linestyle='solid', color='tab:gray', marker='o', markersize=MARKERSIZE-3, alpha=0.6)
     # plt.plot(x, oracle1_openclip, label="Supervised", linewidth=LINEWIDTH, linestyle='solid', color='tab:gray', marker='o', markersize=MARKERSIZE-2, alpha=0.8)
-    plt.plot(x, swat, label="SWAT", linewidth=LINEWIDTH, linestyle='solid', color='royalblue', marker='P', markersize=MARKERSIZE-2, alpha=0.8)
+    # plt.plot(x, swat, label="SWAT", linewidth=LINEWIDTH, linestyle='solid', color='royalblue', marker='P', markersize=MARKERSIZE-2, alpha=0.8)
     plt.plot(x, fsft, label="Fewshot Finetune", linewidth=LINEWIDTH, linestyle='solid', color='cornflowerblue', marker='d', markersize=MARKERSIZE-3, alpha=0.8)
     
-    plt.plot(x, swift_openclip, label="SWIFT (ours)", linewidth=LINEWIDTH, linestyle='solid', color='red', marker='^', markersize=MARKERSIZE-2, alpha=0.8)
+    # plt.plot(x, swift_openclip, label="SWIFT (ours)", linewidth=LINEWIDTH, linestyle='solid', color='red', marker='^', markersize=MARKERSIZE-2, alpha=0.8)
 
     # plt.plot(x, fixmatch_inet50, label="FixMatch (INet-RN50)", linewidth=LINEWIDTH, linestyle='dashed', color='tab:olive', marker='d', markersize=MARKERSIZE-3, alpha=0.8)
 
@@ -254,7 +254,7 @@ def plot_results(dataset, plot_legend):
     plt.plot(x, fixmatch_openclip_naive, label="FixMatch (direct)", linewidth=LINEWIDTH, linestyle='dashed', color='purple', marker='X', markersize=MARKERSIZE-2, alpha=0.8)
     plt.plot(x, fixmatch_inetrn50, label="FixMatch (de facto)", linewidth=LINEWIDTH, linestyle='solid', color='plum', marker='X', markersize=MARKERSIZE-2, alpha=0.8)
  
-    plt.plot(x, fixmatch_openclip_tt, label="FixMatch (w/ TT)", linewidth=LINEWIDTH, linestyle='solid', color='purple', marker='P', markersize=MARKERSIZE, alpha=0.8)
+    # plt.plot(x, fixmatch_openclip_tt, label="FixMatch (w/ TT)", linewidth=LINEWIDTH, linestyle='solid', color='purple', marker='P', markersize=MARKERSIZE, alpha=0.8)
 
 
     # # plot the single point for the real prompt zero-shot accuracy
@@ -268,7 +268,7 @@ def plot_results(dataset, plot_legend):
 
     # plt.plot(x, y_ft_fs, label='FT on few-shot (ours)', linestyle='solid', linewidth=LINEWIDTH, color='tab:green', marker='o', markersize=MARKERSIZE, alpha=0.8)
 
-    plt.xlim(-1, 18)
+    plt.xlim(-1, 16.5)
 
     # if dataset in swat_improved_map:
     #     swat_improved = swat_improved_map[dataset]
