@@ -168,7 +168,7 @@ for model_cfg in "${model_cfgs[@]}"; do
                                             echo "Running: $script $dataset $method $loss $model_cfg $data_source $init $shots $seed $retrieval_split $unlabeled_in_split"
 
                                             # set the cls_path based on linear probing learned weights
-                                            cls_path="output_101725/LinearProbing_${model_cfg}_50epochs/output_${dataset}/${dataset}_probing_fewshot_${init}_${shots}shots_seed${seed}/stage1_model_best.pth"
+                                            # cls_path="output_101725/LinearProbing_${model_cfg}_50epochs/output_${dataset}/${dataset}_probing_fewshot_${init}_${shots}shots_seed${seed}/stage1_model_best.pth"
 
                                             # Run the script and capture the output
                                             output=$(python -W ignore "$script" --prefix "$prefix" --dataset "$dataset" --method "$method" \

@@ -1,2 +1,5 @@
-dataset_path: /scratch/group/real-fs/dataset/
-retrieved_path: /scratch/group/real-fs/retrieved/
+# dataset_path: /scratch/group/real-fs/dataset/
+# retrieved_path: /scratch/group/real-fs/retrieved/
+
+dataset_path: /home/ltmask/dataset/
+retrieved_path: /home/ltmask/retrieved/
