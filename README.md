@@ -12,7 +12,7 @@ from an Auto-Annotation Perspective</h1>
 </div>
 
 
-We investigate the failures of representative semi-supervised learning methods, e.g., FixMatch and DebiasPL, in the challenging few-shot setup for finetuning a pretrained VLM. Our analyses reveal the root cause in the rather ''flat'' softmax probabilities from contrastively pretrained VLMs, which leads to weak supervision and zero utilization of pseudo-labeled data. 
+We investigate the failures of representative semi-supervised learning methods, e.g., FixMatch and DebiasPL, in the challenging few-shot setup for finetuning a pretrained VLM. Our analyses reveal the root cause in the rather ''flat'' softmax probabilities from contrastively pretrained VLMs, which leads to weak supervision and zero utilization of pseudo-labeled data.
 
 To address this, we propose simple-yet-effective remedies, including classifier initialization and temperature tuning. Building upon these insights, our final method SWIFT effectively finetunes a VLM on limited labeled data, abundant unlabeled data, and task-relevant retrieved data. SWIFT outperforms recent FSL and SSL methods by 5% accuracy across five benchmarks, even rivalling fully supervised finetuning with all labels.
 
@@ -23,10 +23,11 @@ To address this, we propose simple-yet-effective remedies, including classifier 
 
 ## News
 
+- **2026-06:** SWIFT is accepted to ECCV 2026.
 - **2025-12-30:** SWIFT code is released.
 - **2025-12-11:** arXiv preprint is published.
 
-### Preprare Env and Datasets
+### Setup Env and Datasets
 Create conda environment and install dependencies following the instructions in [ENV.md](./ENV.md).
 
 Prepare the datasets following the instructions in [DATASETS.md](./DATASETS.md).
@@ -87,25 +88,11 @@ Check out our related works below:
 If you find our project useful, please consider citing our works:
 
 ```bibtex
-@article{liu2025swift,
-title={Solving Semi-Supervised Few-Shot Learning from an Auto-Annotation Perspective}, 
-author={Liu, Tian and Basu, Anwesha and Kong, Shu},
-journal={arXiv preprint arXiv:2512.10244},
-year={2025}
-}
-
-@article{liu2025poc,
-title={Surely Large Multimodal Models (Don’t) Excel in Visual Species Recognition?}, 
-author={Liu, Tian and Basu, Anwesha and Kong, Shu},
-journal={arXiv preprint arXiv:2512.15748},
-year={2025}
-}
-
-@article{wang2025enabling,
-title={Enabling Validation for Robust Few-Shot Recognition}, 
-author={Wang, Hanxin and Liu, Tian and Kong, Shu},
-journal={arXiv preprint arXiv:2506.04713},
-year={2025}
+@article{liu2026solving,
+title={Solving Semi-Supervised Few-Shot Learning from an Auto-Annotation Perspective},
+author={Liu, Tian and Basu, Anwesha and Caverlee, James and Kong, Shu},
+journal={European Conference on Computer Vision (ECCV)},
+year={2026}
 }
 
 @inproceedings{liu2025few,
@@ -113,12 +100,5 @@ year={2025}
     author={Liu, Tian and Zhang, Huixin and Parashar, Shubham and Kong, Shu},
     booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
     year={2025}
-}
-
-@inproceedings{parashar2024neglected,
-    title={The Neglected Tails in Vision-Language Models},
-    author={Parashar, Shubham and Lin, Zhiqiu and Liu, Tian and Dong, Xiangjue and Li, Yanan and Ramanan, Deva and Caverlee, James and Kong, Shu},
-    booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-    year={2024}
 }
 ```
