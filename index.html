@@ -76,9 +76,12 @@
               <span class="author-block"><sup>*</sup> The first two authors make equal contributions</span>
             </div> -->
 
+
             <div class="column has-text-centered">
               <div class="publication-links">
                 <!-- Arxiv PDF link -->
+
+
                 <span class="link-block">
                   <a href="https://arxiv.org/pdf/2512.10244" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
@@ -111,23 +114,48 @@
                   </a>
                 </span>
 
-                <!-- <span class="link-block">
-                  <a href="https://tian1327.github.io/data/POC_CVPR'26_poster.pdf" target="_blank"
+                <span class="link-block">
+                  <a href="https://tian1327.github.io/data/SWIFT_Poster_ECCV'26.pdf" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                     </span>
                     <span>Poster</span>
                   </a>
-                </span> -->
-                  <!-- <h2><strong style="color: red; font-size: x-large;">CVPR 2025, CVinW and FGVC12 Workshops</strong></h2> -->
+                </span>
+
+                <div class="has-text-centered" style="margin-top: 8px;">
+                  <span class="link-block">
+                    <a href="https://www.youtube.com/watch?v=CT30g8x9uEg" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-video"></i>
+                      </span>
+                      <span>5-min Talk</span>
+                    </a>
+                  </span>
+
+                  <span class="link-block">
+                    <a href="https://tian1327.github.io/data/SWIFT_ECCV'26_video.pdf" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-powerpoint"></i>
+                      </span>
+                      <span>Slides</span>
+                    </a>
+                  </span>
+                </div>
+
+
+
+                  <h2><strong style="color: red; font-size: x-large;">ECCV 2026</strong></h2>
               </div>
             </div>
             <!-- <h1><strong style="color: red; font-size: x-large;">CVPR 2024</strong></h1> -->
             <h2 class="subtitle has-text-centered">
               <!-- <b>tl;dr:</b> We explore retriaval-augmented learning for<br>few-shot recognition using Vision-Language Models</h2> -->
-              <b>tl;dr:</b> We reveal the root cause of failures when semi-supervised finetuning a VLM and<br>
-              propose simple classifier initialization and temperature tuning remedies.</h2>
+              <b>tl;dr:</b> We diagnose the failures of finetuning VLMs for SSL,<br>
+              and propose simple remedies via temperatures.</h2>
 
           </div>
         </div>
@@ -143,13 +171,12 @@
             <h2 class="title is-3">Motivation</h2>
             <div class="content has-text-justified">
               <p style="text-align: justify;">
-                          
-              <b>Semi-supervised few-shot learning (SSFSL)</b> formulates realworld applications like <b>“auto-annotation”</b>, 
-              as it aims to learn a model over a few labeled and abundant unlabeled examples to annotate the 
-              unlabeled ones. Despite the availability of powerful open-source Vision-Language Models (VLMs)
-              and their pretraining data, the SSFSL literature largely neglects these open-source resources. 
-              To achive auto-annotation in the real world, we exploit <b>finetuning VLMs and their pretraining data</b> for SSFSL.
 
+              <b>Semi-supervised few-shot learning (SSFSL)</b> resembles realworld <b>“auto-annotation”</b> application,
+              which aims to learn a model over a few labeled and abundant unlabeled task-specific examples to automatically annotate the
+              unlabeled ones. Existing SSL methods have mostly focused on finetuning ImageNet-pretrained backbones or prompts a frozen VLM,
+              which underperforms recent few-shot learning methods that finetune the VLM and retrieve task-relevant open data.
+              To bridge the gap, we explore these techniques for SSFSL.
               </p>
             </div>
           </div>
@@ -162,7 +189,7 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
-            <h2 class="title is-3">Overview of Findings</h2>
+            <h2 class="title is-3">Insights</h2>
             <div class="content has-text-justified">
 
               <div class="item">
@@ -170,30 +197,30 @@
                 <img src="static/images/teaser.png" alt="1" style="width: 600px; height: auto; display: block; margin: 0 auto;"/>
                 <p style="text-align: justify; font-size: 16px; line-height: 1.5; margin-top: 10px; color: #333;">
                   Over five challenging fine-grained SSL datasets, our experiments show that:
-                  <ol> 
-                    
-                    <li>Influential <span style="color: rgb(230, 113, 230);">Semi-Supervised Learning (SSL) methods</span>, 
-                      such as FixMatch, DebiasPL that finetune an ImageNet-pretrained ResNet50
-                      backbone, underperform the <span style="color: green;">state-of-the-art (SOTA) zero-shot
-                      learning (ZSL) methods</span> like REAL. 
+                  <ol>
+
+                    <li>Influential <span style="color: rgb(230, 113, 230);">Semi-Supervised Learning (SSL) methods</span>,
+                      such as FixMatch, DebiasPL (finetuned on ImageNet-pretrained ResNet50)
+                      underperform the <span style="color: green;">recent zero-shot
+                      learning (ZSL) methods</span> like REAL.
                     </li>
 
-                    <li><span style="color: orange;">SOTA SSL method FineSSL</span> that learns prompts with a frozen VLM (e.g., CLIP)
-                      achives notable gains, yet still lags behind <span style="color: blue;">recent few-shot learning (FSL) methods</span> like Few-Shot finetune
-                      that finetune the VLM's visual encoder. This motivates us to explore finetuning VLMs for SSFSL.
+                    <li><span style="color: orange;">SOTA SSL method FineSSL</span> that prompts a frozen VLM (e.g., CLIP)
+                      achives notable gains, yet still lags behind <span style="color: blue;">recent few-shot learning methods</span> like Few-Shot Finetune
+                      that finetune the VLM's visual encoder, motivating us to explore finetuning VLMs for SSFSL.
                     </li>
-                    
-                    <li><span style="color: purple;">Directly applying FixMatch and DebiasPL on VLM</span> 
-                      significantly underperforms recent FSL methods such as Few-Shot Finetune and SWAT,
-                      which do not even exploit unlabeled data. We reveal the <b>root cause of such failures</b> lies 
-                      in the <i>rather flat softmax probabilities from VLMs</i>, leading to weak supervision and zero utilization 
-                      of unlabeled data.                    
-                    </li>                                        
 
-                    <li><span style="color: red;">Our SSFSL method SWIFT</span>, incorporates our simple yet effective 
-                      <b>classifier initialization and temperature tuning</b> techniques to remedy the above issues, 
-                      significantly outperforms existing SSL methods and FSL methods by 5%, even rivalling fully supervised methods.
-                    
+                    <li><span style="color: purple;">Directly finetuning VLM with FixMatch and DebiasPL</span>
+                      significantly underperforms recent FSL methods,
+                      which do not even exploit unlabeled data.
+                      We reveal the <b>root cause of such failures</b> lies
+                      in the <i>flat softmax probabilities from VLMs</i>, leading to weak training supervision and zero utilization
+                      of unlabeled data.
+                    </li>
+
+                    <li><span style="color: red;">Our SSFSL method SWIFT</span>, incorporates our simple <b>temperatures</b> to remedy the above issues,
+                      achieving SOTA performance, even rivalling fully supervised scenario.
+
                     </li>
                     </li>
                   </ol>
@@ -218,21 +245,21 @@
               <!-- Your image here -->
               <img src="static/images/insights.png" alt="1" style="width: auto; height: auto; display: block; margin: 0 auto;"/>
               <p style="text-align: justify; font-size: 16px; line-height: 1.5; margin-top: 10px; color: #333;">
-                
+
                 We run OpenCLIP ViT-B/32 on the unlabeled images of the semi-Aves dataset by zero-shot prompting its 200 class names.
                 <ul>
                   <li>
-                  <b>(A)</b> VLMs produce a <b>''flat'' distribution of softmax probabilities</b> (200-dim column vector per unlabeled example), 
+                  <b>(A)</b> VLMs produce a <b>''flat'' distribution of softmax probabilities</b> (200-dim column vector per unlabeled example),
                   resulting in low confidence scores and weak supervision signals that prevent effective finetuning.
                   <b>(B)</b> Applying a temperature sharpens the softmax distribution,
-                  illustrated by the more prominent red diagonal line.                   
+                  illustrated by the more prominent red diagonal line.
                   </li>
 
                   <li>
-                    <b>(C)</b> 
-                    Without temperature, the original low confidence scores result in <b>zero utilization of 
+                    <b>(C)</b>
+                    Without temperature, the original low confidence scores result in <b>zero utilization of
                     unlabeled examples</b> for FixMatch (threshold set at 0.8)!
-                    <b>(D)</b> Using a temperature increases confidence scores, improving the utilization 
+                    <b>(D)</b> Using a temperature increases confidence scores, improving the utilization
                     of unlabeled data. Note the difference in confidence range between (C) and (D).
                 </ul>
               </p>
@@ -257,17 +284,17 @@
 
             <div class="item">
               <!-- Your image here -->
-              <img src="static/images/TT.png" alt="1" style="width: 500px; height: auto; display: block; margin: 0 auto;"/>
+              <img src="static/images/SWIFT_pipeline.png" alt="1" style="width: 800px; height: auto; display: block; margin: 0 auto;"/>
               <p style="text-align: justify; font-size: 16px; line-height: 1.5; margin-top: 10px; color: #333;">
-                
-                We apply temperatures for (1) sharpening the softmax probability distributions and (2) 
+
+                We apply temperatures for (1) sharpening the softmax probability distributions and (2)
                 strengthening supervision signals.
                 We illustrate our temperature tuning technique with FixMatch as an example.
-                Specifically, we introduce two temperatures: (a) <span style="color: blue;">loss temperature T_loss</span> to 
-                sharpen the softmax probabilities when computing the 
-                cross-entropy loss, and (b) <span style="color: red;">confidence temperature T_conf</span> to scale the softmax probabilities 
+                Specifically, we introduce two temperatures: (a) <span style="color: blue;">loss temperature T_loss</span> to
+                sharpen the softmax probabilities when computing the
+                cross-entropy loss, and (b) <span style="color: red;">confidence temperature T_conf</span> to scale the softmax probabilities
                 when determining whether the confidence exceeds the threshold for utilizing unlabeled data.
-                By tuning these two temperatures, we can effectively 
+                By tuning these two temperatures, we can effectively
                 mitigate the issues caused by flat softmax probabilities from VLMs, leading to improved finetuning performance.
               </p>
             </div>
@@ -283,14 +310,14 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h3 class="title is-4">Stage-wise Finetuning with Temperature Tuning (SWIFT)</h3>
+          <h3 class="title is-4">Stage-wise Finetuning with Temperatures (SWIFT)</h3>
           <div class="content has-text-justified">
 
             <div class="item">
               <!-- Your image here -->
               <img src="static/images/SWIFT.png" alt="1" style="width: 600px; height: auto; display: block; margin: 0 auto;"/>
               <p style="text-align: justify; font-size: 16px; line-height: 1.5; margin-top: 10px; color: #333;">
-                
+
                 Besides <b>Temperature Tuning</b>, we also propose <b>classifier initialization</b> to mitigate the flat softmax issue.
                 Specifically, we initialize the classification head by linear probing with few-shot examples,
                 providing a better starting point for finetuning.
@@ -322,10 +349,10 @@
                 <ul>
                   <li>Left: across five SSL benchmark datasets, our simple classifier initialization and temperature tuning solutions
                     effectively improves existing SSL methods like FixMatch and DebiasPL by a large margin (up to 20%) when finetuning VLMs.
-                    Our final method SWIFT significantly outperforms all existing SSL methods and FSL methods by 5% on average.                    
+                    Our final method SWIFT significantly outperforms all existing SSL methods and FSL methods by 5% on average.
                   </li>
                   <li>
-                    Right: each component in SWIFT brings significant gains. Notably, our SWIFT recipe generalizes well to 
+                    Right: each component in SWIFT brings significant gains. Notably, our SWIFT recipe generalizes well to
                     various existing SSL methods.
                 </ul>
               </p>
@@ -343,19 +370,19 @@
 
         <div class="column is-four-fifths">
           <!-- <h2 class="title is-3">Results</h2> -->
-          <h3 class="title is-4">Tuning the loss temperature strengthens training supervision</h3>
+          <h3 class="title is-4">Loss temperature strengthens training supervision</h3>
           <div class="content has-text-justified">
             <img src="static/images/T_loss.png" alt="comparison with SOTA."
                 style="width: 600px; height: auto; display: block; margin: 10px auto;">
               <p>
-                We illustrate the impact of loss temperature T_loss through few-shot finetuning the visual encoder 
+                We illustrate the impact of loss temperature T_loss through few-shot finetuning the visual encoder
                 of OpenCLIP ViT-B/32.
                 Training loss (left) and test accuracy (right) over epochs show that
-                <span style="color: red;">finetuning without TT (i.e., T_loss=1.0)</span> yields slow convergence 
+                <span style="color: red;">finetuning without TT (i.e., T_loss=1.0)</span> yields slow convergence
                 (slow reduction in training loss and increase in test accuracy), due to the weak supervision.
-                In contrast, <span style="color: blue;">applying a loss temperature</span>, either by fixing T_loss 
-                to a moderately small value (e.g., 0.1 or 0.07, <span style="color: blue;">solid lines</span>) or 
-                by learning it dynamically (<span style="color: blue;">dashed lines</span>), greatly accelerates 
+                In contrast, <span style="color: blue;">applying a loss temperature</span>, either by fixing T_loss
+                to a moderately small value (e.g., 0.1 or 0.07, <span style="color: blue;">solid lines</span>) or
+                by learning it dynamically (<span style="color: blue;">dashed lines</span>), greatly accelerates
                 convergence and improves test accuracy, demonstrating the strengthening of training supervisions.
               </p>
           </div>
@@ -371,16 +398,16 @@
 
         <div class="column is-four-fifths">
           <!-- <h2 class="title is-3">Results</h2> -->
-          <h3 class="title is-4">Tuning the confidence temperature enables utilization of pseudo-labeled data</h3>
+          <h3 class="title is-4">Confidence temperature enables utilization of pseudo-labeled data</h3>
             <div class="content has-text-justified">
             <img src="static/images/T_conf.png" alt="comparison with SOTA."
               style="width: 600px; height: auto; display: block; margin: 10px auto;">
               <p>
-                We illustrate the impact of confidence temperature T_conf through finetuning OpenCLIP ViT-B/32 
+                We illustrate the impact of confidence temperature T_conf through finetuning OpenCLIP ViT-B/32
                 with FixMatch on semi-Aves.
-                The left figure shows that <span style="color: red;">without TT (i.e., T_conf=1.0)</span>, 
+                The left figure shows that <span style="color: red;">without TT (i.e., T_conf=1.0)</span>,
                 the utilization of unlabeled data is zero with a default confidence threshold of 0.8,
-                resulting no accuracy gains over the few-shot finetuning. 
+                resulting no accuracy gains over the few-shot finetuning.
                 However, <span style="color: blue;">reducing the confidence temperature</span>,
                 e.g., fixing T_conf to a moderately small value (0.1 or 0.07) significantly
                 increases the utilization of unlabeled data, yielding notable accuracy gains (right).
@@ -405,11 +432,11 @@
       <h2 class="title">BibTeX</h2>
       <p> If you find our work useful, please consider citing our papers:</p>
       <pre><code>
-@article{liu2025swift,
-title={Solving Semi-Supervised Few-Shot Learning from an Auto-Annotation Perspective}, 
-author={Liu, Tian and Basu, Anwesha and Kong, Shu},
-journal={arXiv preprint arXiv:2512.10244},
-year={2025}
+@article{liu2026solving,
+title={Solving Semi-Supervised Few-Shot Learning from an Auto-Annotation Perspective},
+author={Liu, Tian and Basu, Anwesha and Caverlee, James and Kong, Shu},
+journal={European Conference on Computer Vision (ECCV)},
+year={2026}
 }
 
 @inproceedings{liu2025few,
