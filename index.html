@@ -206,20 +206,20 @@
                     </li>
 
                     <li><span style="color: orange;">SOTA SSL method FineSSL</span> that prompts a frozen VLM (e.g., CLIP)
-                      achives notable gains, yet still lags behind <span style="color: blue;">recent few-shot learning methods</span> like Few-Shot Finetune
-                      that finetune the VLM's visual encoder, motivating us to explore finetuning VLMs for SSFSL.
+                      achieves notable gains, yet still lags behind <span style="color: blue;">recent few-shot learning methods</span> like Few-Shot Finetune
+                       and SWAT that finetune the VLM's visual encoder and retrieves open data, motivating us to explore these techniques for SSFSL.
                     </li>
 
                     <li><span style="color: purple;">Directly finetuning VLM with FixMatch and DebiasPL</span>
-                      significantly underperforms recent FSL methods,
+                      significantly underperforms Few-Shot Finetune,
                       which do not even exploit unlabeled data.
-                      We reveal the <b>root cause of such failures</b> lies
+                      We reveal that the <b>root cause of such failures</b> lies
                       in the <i>flat softmax probabilities from VLMs</i>, leading to weak training supervision and zero utilization
                       of unlabeled data.
                     </li>
 
                     <li><span style="color: red;">Our SSFSL method SWIFT</span>, incorporates our simple <b>temperatures</b> to remedy the above issues,
-                      achieving SOTA performance, even rivalling fully supervised scenario.
+                      exploiting retrieved open data to achieve SOTA performance, even rivalling fully supervised scenario.
 
                     </li>
                     </li>
@@ -279,7 +279,7 @@
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <h2 class="title is-3">Solution</h2>
-          <h3 class="title is-4">Temperature Tuning (TT) with FixMatch</h3>
+          <h3 class="title is-4">FixMatch with Temperatures</h3>
           <div class="content has-text-justified">
 
             <div class="item">
@@ -289,12 +289,12 @@
 
                 We apply temperatures for (1) sharpening the softmax probability distributions and (2)
                 strengthening supervision signals.
-                We illustrate our temperature tuning technique with FixMatch as an example.
+                We illustrate our temperatures with FixMatch as an example.
                 Specifically, we introduce two temperatures: (a) <span style="color: blue;">loss temperature T_loss</span> to
                 sharpen the softmax probabilities when computing the
                 cross-entropy loss, and (b) <span style="color: red;">confidence temperature T_conf</span> to scale the softmax probabilities
                 when determining whether the confidence exceeds the threshold for utilizing unlabeled data.
-                By tuning these two temperatures, we can effectively
+                By applying these two temperatures, we can effectively
                 mitigate the issues caused by flat softmax probabilities from VLMs, leading to improved finetuning performance.
               </p>
             </div>
@@ -318,12 +318,10 @@
               <img src="static/images/SWIFT.png" alt="1" style="width: 600px; height: auto; display: block; margin: 0 auto;"/>
               <p style="text-align: justify; font-size: 16px; line-height: 1.5; margin-top: 10px; color: #333;">
 
-                Besides <b>Temperature Tuning</b>, we also propose <b>classifier initialization</b> to mitigate the flat softmax issue.
+                To mitigate the domain gap in retrieved data, we propose a stage-wise finetuning approach.
                 Specifically, we initialize the classification head by linear probing with few-shot examples,
-                providing a better starting point for finetuning.
-                Combining classifier initialization and temperature tuning, our final method SWIFT
-                finetunes the entire VLM in a stage-wise manner.
-
+                providing a better starting point for semi-supervised finetuning. We also apply few-shot finetuning
+                at the third stage to calibrate the model to the target domain.
               </p>
             </div>
           </div>
@@ -347,7 +345,7 @@
               <p style="text-align: justify; font-size: 16px; line-height: 1.5; margin-top: 10px; color: #333;">
                 <!-- Compareing SWAT -->
                 <ul>
-                  <li>Left: across five SSL benchmark datasets, our simple classifier initialization and temperature tuning solutions
+                  <li>Left: across five SSL benchmark datasets, our simple temperature solution
                     effectively improves existing SSL methods like FixMatch and DebiasPL by a large margin (up to 20%) when finetuning VLMs.
                     Our final method SWIFT significantly outperforms all existing SSL methods and FSL methods by 5% on average.
                   </li>
@@ -378,7 +376,7 @@
                 We illustrate the impact of loss temperature T_loss through few-shot finetuning the visual encoder
                 of OpenCLIP ViT-B/32.
                 Training loss (left) and test accuracy (right) over epochs show that
-                <span style="color: red;">finetuning without TT (i.e., T_loss=1.0)</span> yields slow convergence
+                <span style="color: red;">finetuning without temperature (i.e., T_loss=1.0)</span> yields slow convergence
                 (slow reduction in training loss and increase in test accuracy), due to the weak supervision.
                 In contrast, <span style="color: blue;">applying a loss temperature</span>, either by fixing T_loss
                 to a moderately small value (e.g., 0.1 or 0.07, <span style="color: blue;">solid lines</span>) or
@@ -405,7 +403,7 @@
               <p>
                 We illustrate the impact of confidence temperature T_conf through finetuning OpenCLIP ViT-B/32
                 with FixMatch on semi-Aves.
-                The left figure shows that <span style="color: red;">without TT (i.e., T_conf=1.0)</span>,
+                The left figure shows that <span style="color: red;">without temperature (i.e., T_conf=1.0)</span>,
                 the utilization of unlabeled data is zero with a default confidence threshold of 0.8,
                 resulting no accuracy gains over the few-shot finetuning.
                 However, <span style="color: blue;">reducing the confidence temperature</span>,
