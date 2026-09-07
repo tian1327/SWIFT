@@ -12,9 +12,9 @@ from an Auto-Annotation Perspective</h1>
 </div>
 
 
-We investigate the failures of representative semi-supervised learning methods, e.g., FixMatch and DebiasPL, in the challenging few-shot setup for finetuning a pretrained VLM. Our analyses reveal the root cause in the rather ''flat'' softmax probabilities from contrastively pretrained VLMs, which leads to weak supervision and zero utilization of pseudo-labeled data.
+We investigate the failures of representative semi-supervised learning methods, e.g., FixMatch and DebiasPL, in the challenging few-shot setup for finetuning a pretrained VLM. Our analyses reveal the root cause in the ''flat'' softmax probabilities from contrastively pretrained VLMs, which leads to weak supervision and zero utilization of pseudo-labeled data.
 
-To address this, we propose simple-yet-effective remedies, including classifier initialization and temperature tuning. Building upon these insights, our final method SWIFT effectively finetunes a VLM on limited labeled data, abundant unlabeled data, and task-relevant retrieved data. SWIFT outperforms recent FSL and SSL methods by 5% accuracy across five benchmarks, even rivalling fully supervised finetuning with all labels.
+To address this, we propose a simple yet effective approach using temperatures. Building upon these insights, our final method SWIFT effectively finetunes a VLM on limited labeled data, abundant unlabeled data, and task-relevant retrieved data. SWIFT outperforms recent FSL and SSL methods by 5% accuracy across five benchmarks, even rivalling fully supervised finetuning with all labels.
 
 <div align="center">
 
@@ -23,7 +23,7 @@ To address this, we propose simple-yet-effective remedies, including classifier 
 
 ## News
 
-- **2026-06:** SWIFT is accepted to ECCV 2026.
+- **2026-07:** SWIFT is accepted to ECCV 2026.
 - **2025-12-30:** SWIFT code is released.
 - **2025-12-11:** arXiv preprint is published.
 
@@ -75,10 +75,8 @@ bash scripts/run_dataset_seed_oracle2.sh semi-aves 1
 
 ## Related Works
 
-Check out our related works below:
-
 - [POC](https://tian1327.github.io/POC/) (arXiv 2025): harnessing large multimodal models for few-shot visual species recognition
-- [SWIFT](https://tian1327.github.io/SWIFT/) (arXiv 2025): enabling successful semi-supervised learning with VLM
+- [SWIFT](https://tian1327.github.io/SWIFT/) (ECCV 2026): enabling successful semi-supervised learning with VLM
 - [VEST](https://hannawang09.github.io/projects/vest/) (arXiv 2025): retrieving open data for validation in few-shot learning
 - [SWAT](https://tian1327.github.io/SWAT/) (CVPR 2025): retrieving open data for few-shot finetuning a VLM
 - [REAL](https://shubhamprshr27.github.io/neglected-tails-of-vlms/) (CVPR 2024): uncovering the failures and causes in zero-shot VLMs
